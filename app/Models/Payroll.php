@@ -9,11 +9,6 @@ class Payroll extends Model
 {
     use HasFactory;
 
-    public function payrollType()
-    {
-        return $this->belongsTo(PayrollType::class);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);

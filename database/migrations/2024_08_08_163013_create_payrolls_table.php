@@ -13,11 +13,11 @@ public function up()
 {
     Schema::create('payrolls', function (Blueprint $table) {
         $table->id();
-        $table->string('tittle', 255)->nullable();
+        $table->string('title', 255)->nullable();
         $table->string('year', 4);
-        $table->string('month', 50);
+        $table->enum('month', ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']);
+        $table->enum('type',['Haberes','Jornales']);
         $table->string('file_uri', 255);
-        $table->foreignId('payroll_type_id')->constrained();
         $table->foreignId('user_id')->constrained();
         $table->timestamps();
     });
