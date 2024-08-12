@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PayrollController;
+use App\Models\Payroll;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,7 +28,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('dashboard')->group(function(){
-	Route::get('payroll',[PayrollController::class,'index'])->name('payroll.index');
+	Route::get('payrolls',[PayrollController::class,'index'])->name('payroll.index');
+
+    Route::get('employees', [EmployeeController::class,'index'])->name('employee.index');
+    Route::get('employees/create',[EmployeeController::class,'create'])->name('employee.create');
+    Route::post('employees',[EmployeeController::class,'store'])->name('employee.store');
 });
 
 

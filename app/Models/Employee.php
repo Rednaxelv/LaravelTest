@@ -9,6 +9,12 @@ class Employee extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'dni',
+        'first_name',
+        'last_name'
+    ];
+
     public function payrolls()
     {
         return $this->belongsToMany(Payroll::class);
