@@ -34,7 +34,8 @@ const submit = () =>{
 
         <div class="py-12">
             <div class="flex justify-center">
-                <div class="w-1/4 bg-white overflow-hidden shadow-sm sm:rounded-lg py-5 px-5">
+                <!-- <div class="w-1/4 bg-white overflow-hidden shadow-sm sm:rounded-lg py-5 px-5"> -->
+                <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                     <form @submit.prevent="submit">
 
                         <div class="py-3">
