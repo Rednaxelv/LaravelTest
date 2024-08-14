@@ -14,10 +14,28 @@ class EmployeeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request, Employee $employee)
     {
-        $employees = Employee::orderBy('updated_at', 'desc')->take(10)->get();
-        return Inertia::render('Employee/Index',compact('employees'));
+        $query = $employee->newQuery();
+
+        if ($request->filled('dni')) {
+            $query->where('dni', 'like', '%' . $request->input('dni') . '%');
+        }
+
+        if ($request->filled('last_name')) {
+            $query->where('last_name', 'like', '%' . $request->input('last_name') . '%');
+        }
+
+        if ($request->filled('first_name')) {
+            $query->where('first_name', 'like', '%' . $request->input('first_name') . '%');
+        }
+
+        $employees = $query->orderBy('updated_at', 'desc')->get();
+
+        return Inertia::render('Employee/Index', [
+            'employees' => $employees,
+            'filters' => $request->only(['dni', 'last_name', 'first_name']),
+        ]);
     }
 
 

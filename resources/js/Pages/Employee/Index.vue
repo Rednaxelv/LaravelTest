@@ -1,16 +1,52 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, Link, usePage } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { Head, Link, router } from '@inertiajs/vue3';
+import { ref, watch } from 'vue';
 
-const page = usePage()
-// console.log(page.props);
-const employees = ref(page.props.employees);
+const props = defineProps({
+    employees: Array,
+    filters: Object
+});
+
+const employees = ref(props.employees);
+const filters = ref({
+    dni: props.filters.dni || '',
+    last_name: props.filters.last_name || '',
+    first_name: props.filters.first_name || ''
+});
+
+const search = () => {
+    router.get(route('employee.index'), filters.value, {
+        preserveState: true,
+        preserveScroll: true,
+        only: ['employees']
+    });
+}
+
+const resetFilters = () => {
+    filters.value = {
+        dni: '',
+        last_name: '',
+        first_name: ''
+    };
+    router.get(route('employee.index'), {}, {
+        preserveState: true,
+        preserveScroll: true,
+        only: ['employees']
+    });
+}
 
 const onDeleteSuccess = (e) => {
     employees.value = e.props.employees;
 }
 
+// watch(filters, () => {
+//     search();
+// }, { deep: true });
+
+watch(() => props.employees, (newEmployees) => {
+    employees.value = newEmployees;
+}, { deep: true });
 </script>
 
 <template>
@@ -32,22 +68,16 @@ const onDeleteSuccess = (e) => {
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg py-2 px-5">
 
                     <div class="flex flex-wrap justify-center gap-4 p-3">
-
-                        <input id="inputSearchDNI" type="text" placeholder="Ingresa DNI" class="block w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
-
-                        <input id="inputSearchLastName" type="text" placeholder="Ingresa apellido" class="block w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
-
-                        <input id="inputSearchFirstName" type="text" placeholder="Ingresa nombre" class="block w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
-
+                        <input v-model="filters.dni" type="text" placeholder="Ingresa DNI" class="block w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
+                        <input v-model="filters.last_name" type="text" placeholder="Ingresa apellido" class="block w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
+                        <input v-model="filters.first_name" type="text" placeholder="Ingresa nombre" class="block w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
                     </div>
 
                     <div class="flex justify-center gap-4 p-3">
-
-                        <button class="bg-blue-900 text-white font-semibold py-1 px-1 w-1/6 rounded-lg shadow-md hover:bg-sky-950 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+                        <button @click="search" class="bg-blue-900 text-white font-semibold py-1 px-1 w-1/6 rounded-lg shadow-md hover:bg-sky-950 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
                             Buscar
                         </button>
-
-                        <button class="bg-rose-700 text-white font-semibold w-1/6 rounded-lg shadow-md hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+                        <button @click="resetFilters" class="bg-rose-700 text-white font-semibold w-1/6 rounded-lg shadow-md hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
                             Cancelar
                         </button>
 
