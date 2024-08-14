@@ -1,10 +1,11 @@
 <script setup>
+import Pagination from '@/Components/Pagination.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import { ref, watch } from 'vue';
 
 const props = defineProps({
-    employees: Array,
+    employees: Object, // Object para manejar la paginación
     filters: Object
 });
 
@@ -50,7 +51,7 @@ watch(() => props.employees, (newEmployees) => {
 </script>
 
 <template>
-    <Head title="Dashboard" />
+    <Head title="Trabajadores" />
 
     <AuthenticatedLayout>
         <template #header>
@@ -86,7 +87,7 @@ watch(() => props.employees, (newEmployees) => {
 
                     <!-- Table -->
 
-                    <div class="overflow-x-auto">
+                    <div class="overflow-x-auto hide-scrollbar">
 
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
@@ -98,12 +99,12 @@ watch(() => props.employees, (newEmployees) => {
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                                <tr v-for="employee in employees">
+                                <tr v-for="employee in employees.data" :key="employee.id">
                                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">{{employee.dni}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">{{employee.last_name}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">{{employee.first_name}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                        <!-- <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a> -->
+
                                         <div class="space-x-4 text-blue-800">
                                             <Link :href="route('employee.edit',employee)">
                                                 Editar
@@ -118,7 +119,10 @@ watch(() => props.employees, (newEmployees) => {
                             </tbody>
                         </table>
 
+                        <Pagination :links="employees.links"/>
+
                     </div>
+
                 </div>
             </div>
         </div>
@@ -138,3 +142,10 @@ watch(() => props.employees, (newEmployees) => {
         -moz-appearance: textfield;
     }
 </style> -->
+
+<style>
+/* Clase para ocultar la barra de desplazamiento vertical de la tabla*/
+.hide-scrollbar {
+    overflow-y: hidden;
+}
+</style>

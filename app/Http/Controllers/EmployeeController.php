@@ -30,7 +30,7 @@ class EmployeeController extends Controller
             $query->where('first_name', 'like', '%' . $request->input('first_name') . '%');
         }
 
-        $employees = $query->orderBy('updated_at', 'desc')->get();
+        $employees = $query->orderBy('updated_at', 'desc')->paginate(10)->withQueryString();
 
         return Inertia::render('Employee/Index', [
             'employees' => $employees,
