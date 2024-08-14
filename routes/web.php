@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
 
 Route::prefix('dashboard')->middleware('auth')->group(function(){
 	Route::get('payrolls',[PayrollController::class,'index'])->name('payroll.index');
+    Route::get('payrolls/create',[PayrollController::class,'create'])->name('payroll.create');
+
 
     Route::get('employees', [EmployeeController::class,'index'])->name('employee.index');
     Route::get('employees/create',[EmployeeController::class,'create'])->name('employee.create');
