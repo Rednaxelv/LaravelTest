@@ -75,11 +75,11 @@ watch(() => props.employees, (newEmployees) => {
                     </div>
 
                     <div class="flex justify-center gap-4 p-3">
-                        <button @click="search" class="bg-blue-900 text-white font-semibold py-1 px-1 w-1/6 rounded-lg shadow-md hover:bg-sky-950 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+                        <button @click="search" class="bg-blue-900 text-white font-semibold py-1 px-1 w-1/5 rounded-lg shadow-md hover:bg-sky-950 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
                             Buscar
                         </button>
-                        <button @click="resetFilters" class="bg-rose-700 text-white font-semibold w-1/6 rounded-lg shadow-md hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
-                            Cancelar
+                        <button @click="resetFilters" class="bg-rose-700 text-white font-semibold w-1/5 rounded-lg shadow-md hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+                            Limpiar
                         </button>
 
                     </div>

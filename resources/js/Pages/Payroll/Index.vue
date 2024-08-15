@@ -29,8 +29,8 @@ import { Head, Link } from '@inertiajs/vue3';
 
                         <div class="flex flex-wrap justify-center gap-3">
                             <input type="text" placeholder="Ingresa DNI del trabajador" class="block w-60 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
-                            <input type="text" placeholder="Ingresa Año" class="block w-60 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
-                            <input type="text" placeholder="Ingresa Mes" class="block w-60 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
+                            <input type="text" placeholder="Ingresa Año" class="block w-56 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
+                            <input type="text" placeholder="Ingresa Mes" class="block w-56 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
                             <input type="text" placeholder="Ingresa Tipo de planilla" class="block w-60 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
                         </div>
 
