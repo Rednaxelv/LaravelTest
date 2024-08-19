@@ -28,8 +28,8 @@ class UpdateRequest extends FormRequest
         return [
             'dni' => [
                 'required',
-                'min:8',
-                'max:30',
+                'numeric',
+                'digits_between:8,30',
                 Rule::unique('employees')->ignore($id) // Ignorar id del registro actual
             ],
             "first_name" => 'required|max:150',

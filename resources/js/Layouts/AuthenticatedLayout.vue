@@ -20,7 +20,7 @@ const showingNavigationDropdown = ref(false);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('dashboard')" aria-label="Volver al panel de control">
                                     <ApplicationLogo
                                         class="block h-16 w-auto fill-current text-gray-800"
                                     />
@@ -44,7 +44,7 @@ const showingNavigationDropdown = ref(false);
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
                             <!-- Settings Dropdown -->
                             <div class="ms-3 relative">
-                                <Dropdown align="right" width="48">
+                                <Dropdown aria-label="right" width="48">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
                                             <button

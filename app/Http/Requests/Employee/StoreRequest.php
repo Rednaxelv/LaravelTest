@@ -23,7 +23,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "dni" => 'required|min:8|max:30|unique:employees',
+            "dni" => 'required|numeric|digits_between:8,30||unique:employees',
             "first_name" => 'required|max:150',
             "last_name" => 'required|max:150',
         ];

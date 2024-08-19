@@ -20,7 +20,8 @@ const classes = computed(() =>
 </script>
 
 <template>
-    <Link :href="href" :class="classes">
+    <Link :href="href" :class="classes" rel="prefetch"> <!--Fix Largest Contentful Paint element -->
+    <!-- <Link :href="href" :class="classes"> -->
         <slot />
     </Link>
 </template>
