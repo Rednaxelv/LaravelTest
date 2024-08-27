@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\PlanillaHaberesController;
 use App\Models\Payroll;
 use GuzzleHttp\Middleware;
 use Illuminate\Foundation\Application;
@@ -31,6 +32,9 @@ Route::middleware('auth')->group(function () {
 Route::prefix('dashboard')->middleware('auth')->group(function(){
 	Route::get('payrolls',[PayrollController::class,'index'])->name('payroll.index');
     Route::get('payrolls/create',[PayrollController::class,'create'])->name('payroll.create');
+
+    Route::get('planillahaberes',[PlanillaHaberesController::class,'index'])->name('planillahaberes.index');
+    Route::get('planillahaberes/create',[PlanillaHaberesController::class,'create'])->name('planillahaberes.create');
 
 
     Route::get('employees', [EmployeeController::class,'index'])->name('employee.index');

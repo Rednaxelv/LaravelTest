@@ -35,6 +35,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('payroll.index')" :active="route().current('payroll.index')">
                                     Planillas
                                 </NavLink>
+                                <NavLink :href="route('planillahaberes.index')" :active="route().current('planillahaberes.index')">
+                                    Planilla Haberes
+                                </NavLink>
                                 <NavLink :href="route('employee.index')" :active="route().current('employee.index')">
                                     Trabajadores
                                 </NavLink>

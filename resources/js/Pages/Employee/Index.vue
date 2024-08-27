@@ -69,9 +69,9 @@ watch(() => props.employees, (newEmployees) => {
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg py-2 px-5">
 
                     <div class="flex flex-wrap justify-center gap-4 p-3">
-                        <input v-model="filters.dni" type="text" placeholder="Ingresa DNI" class="block w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
-                        <input v-model="filters.last_name" type="text" placeholder="Ingresa apellido" class="block w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
-                        <input v-model="filters.first_name" type="text" placeholder="Ingresa nombre" class="block w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
+                        <input v-model="filters.dni" type="text" placeholder="Ingresa DNI" class="block w-full sm:w-1/3 md:w-1/4 lg:w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
+                        <input v-model="filters.last_name" type="text" placeholder="Ingresa apellido" class="block w-full sm:w-1/3 md:w-1/4 lg:w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
+                        <input v-model="filters.first_name" type="text" placeholder="Ingresa nombre" class="block w-full sm:w-1/3 md:w-1/4 lg:w-80 rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
                     </div>
 
                     <div class="flex justify-center gap-4 p-3">
