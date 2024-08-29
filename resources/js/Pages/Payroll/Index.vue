@@ -24,7 +24,7 @@ import { Head, Link } from '@inertiajs/vue3';
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg py-2 px-5">
 
                         <!-- Filtros -->
-                        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 p-2">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-2">
                             <input type="text" placeholder="Codigo de Planilla" class="block w-full rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
                             <input type="text" placeholder="Tipo de Planilla" class="block w-full rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
                             <input type="text" placeholder="Año de Planilla" class="block w-full rounded-lg border dark:border-none dark:bg-neutral-100 text-center pr-4 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"/>
